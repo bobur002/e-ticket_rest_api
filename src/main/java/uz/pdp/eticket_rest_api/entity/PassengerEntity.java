@@ -1,6 +1,6 @@
 package uz.pdp.eticket_rest_api.entity;
 
-import uz.pdp.eticket_model.model.postgresql.Passenger;
+import uz.pdp.eticket_model.model.sql.Passenger;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
