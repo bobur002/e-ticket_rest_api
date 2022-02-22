@@ -2,15 +2,11 @@ package uz.pdp.eticket_rest_api.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import uz.pdp.eticket_model.dto.receive.CarReceiveDTO;
 import uz.pdp.eticket_rest_api.service.CarService;
 
-import javax.validation.Valid;
+
 
 @RestController
 @RequestMapping("/admin/car")
@@ -25,5 +21,16 @@ public class CarController {
     ){
         System.out.println("uraaaaaaa");
         return ResponseEntity.ok(carService.addCar(carReceiveDTO));
+    }
+    @GetMapping("/types")
+    public ResponseEntity<Object> getCarTypes(){
+        System.out.println("uraaaaaaa");
+        return ResponseEntity.ok(carService.getCarTypes());
+    }
+
+    @GetMapping("/list")
+    public ResponseEntity<Object> getCarList(){
+        System.out.println("uraaaaaaa");
+        return ResponseEntity.ok(carService.getCarList());
     }
 }

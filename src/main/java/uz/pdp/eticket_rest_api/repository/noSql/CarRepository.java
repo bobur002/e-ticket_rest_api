@@ -6,5 +6,5 @@ import uz.pdp.eticket_model.model.noSQL.Car;
 import java.util.Optional;
 
 public interface CarRepository extends MongoRepository<Car,String> {
-    Optional<Car> findCarByCarType(String carType);
+    Optional<Car> findByCarType(String carType);
 }
