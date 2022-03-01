@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 public class UserEntity extends User {
-    @OneToOne
-    private PassengerEntity passenger;
+//    @OneToOne
+//    private PassengerEntity passenger;
 
 }

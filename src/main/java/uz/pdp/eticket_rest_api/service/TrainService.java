@@ -22,7 +22,7 @@ public class TrainService {
 
     private final CarRepository carRepository;
 
-    public ApiResponse addTrain(TrainReceiveDTO trainReceiveDTO) {
+    public ApiResponse addTrain(TrainReceiveDTO trainReceiveDTO ) {
 
         Optional<Train> byTrainName = trainRepository.findByTrainName(trainReceiveDTO.getTrainName());
 

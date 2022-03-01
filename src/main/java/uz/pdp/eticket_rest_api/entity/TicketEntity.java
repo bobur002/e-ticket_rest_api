@@ -1,5 +1,7 @@
 package uz.pdp.eticket_rest_api.entity;
 
+import lombok.Getter;
+import lombok.Setter;
 import uz.pdp.eticket_model.model.sql.Ticket;
 
 import javax.persistence.Column;
@@ -8,11 +10,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
+@Getter
+@Setter
 public class TicketEntity extends Ticket {
 
     @OneToOne
     PassengerEntity passenger;
 
-    @OneToOne
-    PassengerEntity childPassenger;
+//    @OneToOne
+//    PassengerEntity childPassenger;
 }

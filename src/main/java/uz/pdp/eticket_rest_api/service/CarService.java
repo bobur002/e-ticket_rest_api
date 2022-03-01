@@ -12,33 +12,33 @@ import uz.pdp.eticket_rest_api.repository.noSql.CarRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.atomic.AtomicReference;
 
 @Service
 @RequiredArgsConstructor
 public class CarService {
     private final CarRepository carRepository;
 
-    public ApiResponse addCar(CarReceiveDTO carReceiveDTO){
+    public ApiResponse addCar(CarReceiveDTO carReceiveDTO) {
+        Car car1 = new Car();
         ApiResponse apiResponse = BaseResponse.SUCCESS;
-        Car car = new Car(carReceiveDTO.getCarType(),carReceiveDTO.getPrice(),new ArrayList<>());
+        Car car = new Car(carReceiveDTO.getCarType(), carReceiveDTO.getPrice(), new ArrayList<>());
         for (int i = 1; i <= carReceiveDTO.getSeatCount(); i++) {
-           Seat seat = new Seat();
-           seat.setSeatNumber(String.valueOf(i));
-           car.getSeats().add(seat);
+            Seat seat = new Seat();
+            seat.setSeatNumber(String.valueOf(i));
+            car.getSeats().add(seat);
         }
         Optional<Car> byCarType = carRepository.findByCarType(car.getCarType());
 
         if (byCarType.isPresent()) {
             apiResponse = BaseResponse.ERROR_CAR_ALREADY_EXIST;
-        }else {
+        } else {
             carRepository.insert(car);
         }
 
         return apiResponse;
     }
 
-    public ApiResponse getCarTypes(){
+    public ApiResponse getCarTypes() {
         List<String> carTypes = new ArrayList<>();
 
         for (Car car : carRepository.findAll()) {

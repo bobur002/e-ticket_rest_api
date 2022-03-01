@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uz.pdp.eticket_model.dto.receive.PassengerReceiveDto;
-import uz.pdp.eticket_model.dto.receive.TicketReceiveDto;
 import uz.pdp.eticket_rest_api.service.PassengerService;
 
 @RestController
@@ -21,7 +20,7 @@ public class PassengerController {
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getUserById(@PathVariable long id) {
-        return ResponseEntity.ok(service.getpassenger(id));
+        return ResponseEntity.ok(service.getPassenger(id));
     }
 
     @GetMapping
